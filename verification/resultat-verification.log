@@ -1,0 +1,40 @@
+Démarrage de la pile (mysql, zabbix-server, zabbix-web, agent, switch SNMP)...
+ Container zabbix-demo-switch-snmp-1 Running 
+ Container zabbix-demo-mysql-server-1 Running 
+ Container zabbix-demo-zabbix-web-1 Running 
+ Container zabbix-demo-zabbix-server-1 Running 
+ Container zabbix-demo-cible-1 Running 
+ Container zabbix-demo-mysql-server-1 Waiting 
+ Container zabbix-demo-mysql-server-1 Waiting 
+ Container zabbix-demo-mysql-server-1 Healthy 
+ Container zabbix-demo-mysql-server-1 Healthy 
+Charge CPU lancée dans le conteneur cible (20 cœurs saturés), attente du déclenchement (jusqu'à ~7 min, moyenne glissante)...
+  ... 0s : system.cpu.util=1.3896880000000067, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=98.610312, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.153404, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.229281, system.cpu.util[,steal]=0, system.cpu.util[,system]=0.448606, system.cpu.util[,user]=0.533711
+  ... 30s : system.cpu.util=1.3896880000000067, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=98.610312, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.153404, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.229281, system.cpu.util[,steal]=0, system.cpu.util[,system]=0.448606, system.cpu.util[,user]=0.533711
+  ... 60s : system.cpu.util=84.668893, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=15.331107, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.023328, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.18171, system.cpu.util[,steal]=0, system.cpu.util[,system]=1.63924, system.cpu.util[,user]=94.938687
+  ... 90s : system.cpu.util=84.668893, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=15.331107, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.023328, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.18171, system.cpu.util[,steal]=0, system.cpu.util[,system]=1.63924, system.cpu.util[,user]=94.938687
+  ... 120s : system.cpu.util=99.841083, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=0.158917, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.010263, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.212671, system.cpu.util[,steal]=0, system.cpu.util[,system]=1.784681, system.cpu.util[,user]=97.849903
+  ... 150s : system.cpu.util=99.841083, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=0.158917, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.010263, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.212671, system.cpu.util[,steal]=0, system.cpu.util[,system]=1.784681, system.cpu.util[,user]=97.849903
+  ... 180s : system.cpu.util=99.766366, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=0.233634, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.005458, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.19186, system.cpu.util[,steal]=0, system.cpu.util[,system]=1.698183, system.cpu.util[,user]=97.886779
+  ... 210s : system.cpu.util=99.766366, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=0.233634, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.005458, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.19186, system.cpu.util[,steal]=0, system.cpu.util[,system]=1.698183, system.cpu.util[,user]=97.886779
+  ... 240s : system.cpu.util=99.824835, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=0.175165, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.006343, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.193225, system.cpu.util[,steal]=0, system.cpu.util[,system]=1.586451, system.cpu.util[,user]=97.968933
+  ... 270s : system.cpu.util=99.824835, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=0.175165, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.006343, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.193225, system.cpu.util[,steal]=0, system.cpu.util[,system]=1.586451, system.cpu.util[,user]=97.968933
+  ... 300s : system.cpu.util=99.813536, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=0.186464, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.004756, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.22999, system.cpu.util[,steal]=0, system.cpu.util[,system]=1.903797, system.cpu.util[,user]=97.657647
+  ... 330s : system.cpu.util=99.813536, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=0.186464, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.004756, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.22999, system.cpu.util[,steal]=0, system.cpu.util[,system]=1.903797, system.cpu.util[,user]=97.657647
+  ... 360s : system.cpu.util=99.788024, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=0.211976, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.013133, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.198192, system.cpu.util[,steal]=0, system.cpu.util[,system]=1.995968, system.cpu.util[,user]=97.63367
+  ... 390s : system.cpu.util=99.788024, system.cpu.util[,guest]=0, system.cpu.util[,guest_nice]=0, system.cpu.util[,idle]=0.211976, system.cpu.util[,interrupt]=0, system.cpu.util[,iowait]=0.013133, system.cpu.util[,nice]=0, system.cpu.util[,softirq]=0.198192, system.cpu.util[,steal]=0, system.cpu.util[,system]=1.995968, system.cpu.util[,user]=97.63367
+
+OK    interface web Zabbix accessible
+OK    zabbix-server démarré
+OK    connexion à l'API avec le compte Admin par défaut
+OK    version de l'API Zabbix : 7.0.30
+OK    modèle "Linux by Zabbix agent" disponible
+OK    hôte "machine-a-superviser" créé avec le modèle Linux by Zabbix agent : 10683
+OK    statut de disponibilité de l'hôte lu : available=undefined
+OK    donnée réelle reçue de l'agent (system.cpu.load) : 8.307617
+OK    un vrai problème est déclenché dans Monitoring → Problems : Linux: High CPU utilization (over 90% for 5m)
+OK    snmpd démarré dans le conteneur switch-snmp : jamais démarré
+OK    snmpwalk (depuis le serveur, comme dans le README) répond : SNMPv2-MIB::sysDescr.0 = STRING: Linux switch-snmp 6.18.33.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Fri Jun  5 01:12:21 UTC 2026 x86_64
+OK    hôte SNMP créé et une donnée réelle est reçue : icmpping = 1
+
+Aucun problème détecté.

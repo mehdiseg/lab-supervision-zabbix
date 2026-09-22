@@ -1,0 +1,61 @@
+services:
+  mysql-server:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbixpass
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_bin --log-bin-trust-function-creators=1
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-prootpass"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  zabbix-server:
+    image: zabbix/zabbix-server-mysql:alpine-7.0-latest
+    environment:
+      DB_SERVER_HOST: mysql-server
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbixpass
+    depends_on:
+      mysql-server:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:10051:10051"
+
+  zabbix-web:
+    image: zabbix/zabbix-web-nginx-mysql:alpine-7.0-latest
+    environment:
+      DB_SERVER_HOST: mysql-server
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zabbixpass
+      ZBX_SERVER_HOST: zabbix-server
+      PHP_TZ: Europe/Paris
+    depends_on:
+      mysql-server:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8089:8080"
+
+  cible:
+    image: zabbix/zabbix-agent2:alpine-7.0-latest
+    hostname: machine-a-superviser
+    environment:
+      ZBX_HOSTNAME: machine-a-superviser
+      ZBX_SERVER_HOST: zabbix-server
+    depends_on:
+      - zabbix-server
+
+  switch-snmp:
+    image: debian:12
+    hostname: switch-snmp
+    command: >
+      bash -c "apt-get update -qq && apt-get install -y -qq snmpd >/dev/null 2>&1 &&
+      sed -i 's/^agentaddress.*/agentaddress udp:161,udp6:[::1]:161/' /etc/snmp/snmpd.conf &&
+      echo 'rocommunity LabSnmpRO' >> /etc/snmp/snmpd.conf &&
+      sed -i '/^rocommunity/! s/^#\\?\\s*sysLocation.*/sysLocation Labo Docker/' /etc/snmp/snmpd.conf &&
+      snmpd -f -Lo"

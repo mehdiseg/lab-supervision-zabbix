@@ -1,6 +1,8 @@
 # Lab supervision : Zabbix, agent et SNMP
 
 > **Statut : à réaliser.** Ce guide est préparé à partir de la documentation officielle et de mes cours ; **je ne l'ai pas encore rejoué de bout en bout**. Les commandes sont à valider en le faisant, et le journal en bas de page sera complété avec mes résultats réels (captures, erreurs rencontrées, corrections).
+>
+> **Commandes vérifiées :** ce lab est allé plus loin que les autres : au lieu de vérifier seulement des commandes, un vrai serveur Zabbix (7.0, Docker, 22 septembre 2026) a été déployé de bout en bout — voir [`verification/`](verification) — avec un hôte supervisé par agent, un faux switch SNMP (un vrai `snmpd`), une **vraie surcharge CPU** (20 cœurs saturés) qui a fait apparaître une alerte réelle dans Monitoring → Problems (« Linux: High CPU utilization (over 90% for 5m) »), et un `snmpwalk` réel qui répond. Deux captures d'écran réelles de l'interface web (`capture-problems.png`, `capture-hosts.png`) et le journal complet (`resultat-verification.log`) sont dans le dossier. Différence avec le README : ici tout tourne dans des conteneurs Docker plutôt que sur une vraie machine Debian et un vrai switch Cisco — les concepts et la configuration sont les mêmes, mais ce n'est pas littéralement l'installation `apt install zabbix-server-mysql` décrite plus bas. Vérifié ne veut pas dire réalisé : c'est l'assistant IA qui a préparé ce guide qui a rejoué ces commandes dans un conteneur jetable, pas moi sur mon propre lab. Le journal ci-dessous reste à remplir une fois que je l'aurai fait moi-même.
 
 ## Objectif
 
